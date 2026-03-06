@@ -638,7 +638,13 @@ body {
 }
 
 @media (max-width: 480px) {
-  .couple-row { flex-direction: column; gap: 1.5rem; }
-  .rings-wrap { order: -1; }
+  .couple-row {
+    flex-direction: column;
+    gap: 3rem; /* Increased gap to prevent tight stacking */
+  }
+  .rings-wrap {
+    order: -1;
+    margin-bottom: 1.5rem; /* Add breathing room below the rings */
+  }
   .invite-card { padding: 1.5rem; }
 }

@@ -640,11 +640,10 @@ body {
 @media (max-width: 480px) {
   .couple-row {
     flex-direction: column;
-    gap: 3rem; /* Increased gap to prevent tight stacking */
+    gap: 2rem;
   }
   .rings-wrap {
-    order: -1;
-    margin-bottom: 1.5rem; /* Add breathing room below the rings */
+    margin: 1rem 0; /* Breathing room for rings */
   }
   .invite-card { padding: 1.5rem; }
 }

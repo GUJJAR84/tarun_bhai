@@ -15,6 +15,7 @@ function App() {
 
   const audioCtxRef = useRef(null);
   const mainRef = useRef(null);
+  const bgAudioRef = useRef(null);
 
   // Mouse Parallax
   useEffect(() => {
@@ -78,34 +79,26 @@ function App() {
   };
 
   const playDrone = () => {
-    const ctx = audioCtxRef.current;
-    if (!ctx) return;
-    try {
-      const mk = (f, pan, vol) => {
-        const o = ctx.createOscillator(), g = ctx.createGain(), p = ctx.createStereoPanner(), fl = ctx.createBiquadFilter();
-        o.type = 'sine'; o.frequency.value = f;
-        fl.type = 'lowpass'; fl.frequency.value = f * 2.5; fl.Q.value = 0.8;
-        g.gain.value = 0; g.gain.linearRampToValueAtTime(vol, ctx.currentTime + 3);
-        p.pan.value = pan;
-        o.connect(fl); fl.connect(g); g.connect(p); p.connect(ctx.destination);
-        o.start();
-      };
-      mk(131, -0.3, 0.035); mk(196, 0.3, 0.03); mk(262, 0, 0.025); mk(66, 0, 0.03); mk(330, -0.2, 0.008); mk(392, 0.2, 0.008);
-      setAudioPlaying(true);
-    } catch (e) {}
+    if (!bgAudioRef.current) {
+      bgAudioRef.current = new Audio('https://archive.org/download/Hindi-instrumentalVoice-bismillaKhanShehnai/01Track1.mp3');
+      bgAudioRef.current.loop = true;
+      bgAudioRef.current.volume = 0.5;
+    }
+    bgAudioRef.current.play().then(() => setAudioPlaying(true)).catch(e => console.log(e));
   };
 
   const toggleAudio = () => {
-    const ctx = audioCtxRef.current;
-    if (!ctx) {
-      initAudio(); playDrone(); return;
+    if (!bgAudioRef.current) {
+      initAudio();
+      playDrone();
+      return;
     }
-    if (ctx.state === 'suspended') {
-      ctx.resume(); setAudioPlaying(true);
-    } else if (audioPlaying) {
-      ctx.suspend(); setAudioPlaying(false);
+    if (audioPlaying) {
+      bgAudioRef.current.pause();
+      setAudioPlaying(false);
     } else {
-      ctx.resume(); setAudioPlaying(true);
+      bgAudioRef.current.play();
+      setAudioPlaying(true);
     }
   };
 

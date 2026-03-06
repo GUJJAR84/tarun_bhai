@@ -199,8 +199,8 @@ function App() {
           <div className="events-grid" id="events-grid">
             <div className="event-card">
               <div className="ev-icon">🪔</div>
-              <div className="ev-name">Lagan Sapai</div>
-              <div className="ev-name-hi">लगन सपाई</div>
+              <div className="ev-name">Lagan Sagai</div>
+              <div className="ev-name-hi">लगन सगाई</div>
               <div className="ev-day">Saturday — शनिवार</div>
               <div className="ev-date">7th March</div>
               <div className="ev-time">5:00 PM Onwards</div>

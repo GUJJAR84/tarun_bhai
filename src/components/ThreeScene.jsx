@@ -169,6 +169,7 @@ const ThreeScene = ({ scrollProgress, animationStarted, mousePos }) => {
     const petalSystem = new THREE.Points(pgeo, new THREE.PointsMaterial({
       map: petalTex, size: 0.7, transparent: true, opacity: 0.9,
       depthWrite: false, vertexColors: true, sizeAttenuation: true,
+      alphaTest: 0.05
     }));
     petalSystem.userData = { vel: pvel, phase: pphase };
     scene.add(petalSystem);

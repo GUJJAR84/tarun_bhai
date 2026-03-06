@@ -359,7 +359,7 @@ function App() {
               Your presence is the greatest gift.<br/>
               Please let us know if you can join us.
             </p>
-            <a href="https://wa.me/919810382306?text=Congratulations!%20We%20will%20be%20there%20for%20Tarun%20%26%20Nidhi%27s%20Wedding!%20%F0%9F%92%90"
+            <a href="https://wa.me/918527684249?text=Congratulations!%20We%20will%20be%20there%20for%20Tarun%20%26%20Nidhi%27s%20Wedding!%20%F0%9F%92%90"
                target="_blank" rel="noreferrer" className="rsvp-wa">
               ✉ &nbsp;Confirm via WhatsApp
             </a>

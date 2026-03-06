@@ -9,13 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [started, setStarted] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [audioPlaying, setAudioPlaying] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: '--', hours: '--', mins: '--', secs: '--' });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const audioCtxRef = useRef(null);
   const mainRef = useRef(null);
-  const bgAudioRef = useRef(null);
 
   // Mouse Parallax
   useEffect(() => {
@@ -52,61 +49,8 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // Audio System
-  const initAudio = () => {
-    if (!audioCtxRef.current) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      audioCtxRef.current = new AudioContext();
-    }
-  };
-
-  const playBell = () => {
-    const ctx = audioCtxRef.current;
-    if (!ctx) return;
-    try {
-      [523, 784, 1047, 1318].forEach((f, i) => {
-        const o = ctx.createOscillator(), g = ctx.createGain(), fl = ctx.createBiquadFilter();
-        o.type = 'sine'; o.frequency.setValueAtTime(f, ctx.currentTime);
-        o.frequency.exponentialRampToValueAtTime(f * 0.5, ctx.currentTime + 3);
-        fl.type = 'lowpass'; fl.frequency.setValueAtTime(f * 3, ctx.currentTime);
-        fl.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 3.5);
-        g.gain.setValueAtTime(0.12 / (i + 1), ctx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 3.5);
-        o.connect(fl); fl.connect(g); g.connect(ctx.destination);
-        o.start(ctx.currentTime + i * 0.05); o.stop(ctx.currentTime + 4);
-      });
-    } catch (e) {}
-  };
-
-  const playDrone = () => {
-    if (!bgAudioRef.current) {
-      bgAudioRef.current = new Audio('https://archive.org/download/Hindi-instrumentalVoice-bismillaKhanShehnai/01Track1.mp3');
-      bgAudioRef.current.loop = true;
-      bgAudioRef.current.volume = 0.5;
-    }
-    bgAudioRef.current.play().then(() => setAudioPlaying(true)).catch(e => console.log(e));
-  };
-
-  const toggleAudio = () => {
-    if (!bgAudioRef.current) {
-      initAudio();
-      playDrone();
-      return;
-    }
-    if (audioPlaying) {
-      bgAudioRef.current.pause();
-      setAudioPlaying(false);
-    } else {
-      bgAudioRef.current.play();
-      setAudioPlaying(true);
-    }
-  };
-
   const handleStart = () => {
     setStarted(true);
-    initAudio();
-    playBell();
-    setTimeout(playDrone, 2500);
   };
 
   // GSAP Animations
@@ -166,9 +110,6 @@ function App() {
       )}
 
       {/* Persistent UI elements */}
-      <button className="audio-btn" onClick={toggleAudio} title="Toggle Music">
-        {audioPlaying ? '🔊' : '🔇'}
-      </button>
 
       <a href="#rsvp-section" className="rsvp-float">RSVP ✉</a>
 

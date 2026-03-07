@@ -66,29 +66,29 @@ function App() {
 
     // Scene 1
     gsap.fromTo('#ganesha-wrap', { opacity: 0, scale: 0.85, y: 30 }, { opacity: 1, scale: 1, y: 0, scrollTrigger: { trigger: '#scene-opening', start: 'top 80%', end: 'center 60%', scrub: 1.5 } });
-    
+
     // Scene 2
     gsap.fromTo('#invite-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, scrollTrigger: { trigger: '#scene-announcement', start: 'top 70%', end: 'center 50%', scrub: 1.5 } });
-    
+
     // Scene 3
     gsap.fromTo('#couple-heading', { opacity: 0, y: -25 }, { opacity: 1, y: 0, scrollTrigger: { trigger: '#scene-couple', start: 'top 75%', end: 'top 50%', scrub: 1 } });
     gsap.fromTo('#couple-row', { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, scrollTrigger: { trigger: '#scene-couple', start: 'top 65%', end: 'center 50%', scrub: 1.5 } });
-    
+
     // Scene 4 - Events
     gsap.fromTo('#events-head', { opacity: 0, y: -35 }, { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: '#scene-events', start: 'top 80%', toggleActions: 'play none none reverse' } });
     gsap.utils.toArray('.event-card').forEach((card, i) => {
       gsap.fromTo(card, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.12, ease: 'back.out(1.2)', scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none reverse' } });
     });
-    
+
     // Countdown
     gsap.fromTo('#countdown-wrap', { opacity: 0, y: 30 }, { opacity: 1, y: 0, scrollTrigger: { trigger: '#scene-countdown', start: 'top 70%', end: 'center 55%', scrub: 1.5 } });
-    
+
     // Mandap
     gsap.fromTo('#mandap-wrap', { opacity: 0, y: 40 }, { opacity: 1, y: 0, scrollTrigger: { trigger: '#scene-mandap', start: 'top 60%', end: 'center center', scrub: 1.5 } });
-    
+
     // Family
     gsap.fromTo('#family-wrap', { opacity: 0, y: 50 }, { opacity: 1, y: 0, scrollTrigger: { trigger: '#scene-family', start: 'top 65%', end: 'center center', scrub: 1.5 } });
-    
+
     // Blessing
     gsap.fromTo('#blessing-wrap', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, scrollTrigger: { trigger: '#scene-blessing', start: 'top 60%', end: 'center center', scrub: 1.5 } });
 
@@ -115,7 +115,7 @@ function App() {
 
       {/* Content wrapper */}
       <div className="scroll-container" id="scroll-container">
-        
+
         {/* 1. GANESHA */}
         <section className="section" id="scene-opening">
           <div className="ganesha-wrap" id="ganesha-wrap">
@@ -146,7 +146,7 @@ function App() {
             <div className="ornament-heavy"><span className="ornament-icon">❦</span></div>
 
             <p className="invite-subtitle">
-              Cordially invite you to celebrate<br/>their sacred union in holy matrimony
+              Cordially invite you to celebrate<br />their sacred union in holy matrimony
             </p>
             <div className="ornament"><span className="ornament-icon">❀</span></div>
           </div>
@@ -199,8 +199,8 @@ function App() {
           <div className="events-grid" id="events-grid">
             <div className="event-card">
               <div className="ev-icon">🪔</div>
-              <div className="ev-name">Lagan Sapai</div>
-              <div className="ev-name-hi">लगन सपाई</div>
+              <div className="ev-name">Lagan Sagai</div>
+              <div className="ev-name-hi">लगन सगाई</div>
               <div className="ev-day">Saturday — शनिवार</div>
               <div className="ev-date">7th March</div>
               <div className="ev-time">5:00 PM Onwards</div>
@@ -270,12 +270,12 @@ function App() {
             <div className="mandap-title-hi">पवित्र मंडप</div>
             <div className="ornament"><span className="ornament-icon">🔥</span></div>
             <p className="mandap-body">
-              Where two souls unite in the presence of<br/>
+              Where two souls unite in the presence of<br />
               the sacred fire, under the blessings of the divine
             </p>
             <div className="mandap-verse">
-              ॐ सप्तपदी — सात फेरों के साथ,<br/>
-              दो आत्माएं, एक हो जाती हैं।<br/>
+              ॐ सप्तपदी — सात फेरों के साथ,<br />
+              दो आत्माएं, एक हो जाती हैं।<br />
               अग्नि साक्षी, देव आशीर्वाद।
             </div>
           </div>
@@ -296,7 +296,7 @@ function App() {
             <div className="parents-block">
               <div className="parent-line" style={{ color: 'var(--marigold)' }}>श्रीमती सविता एवं श्री गजराज बैसोया</div>
               <div className="parent-label">Parents of the Bride</div>
-              <div className="parent-detail">निवासी ग्राम अल्लीपुर (विलोंगी) जिला फरीदाबाद</div>
+              <div className="parent-detail">निवासी ग्राम अल्लीपुर (तिलोरी) जिला फरीदाबाद</div>
             </div>
 
             <div className="ornament"><span className="ornament-icon">◆</span></div>
@@ -322,7 +322,7 @@ function App() {
               <div className="contact-nums">
                 <a href="tel:9810382306">9810382306</a> •
                 <a href="tel:9899634494">9899634494</a> •
-                <a href="tel:9310853574">9310853574</a><br/>
+                <a href="tel:9310853574">9310853574</a><br />
                 <a href="tel:8403896239">8403896239</a> •
                 <a href="tel:9811879008">9811879008</a>
               </div>
@@ -335,12 +335,12 @@ function App() {
           <div className="blessing-wrap" id="blessing-wrap">
             <img src={`${import.meta.env.BASE_URL}assets/ganesha.png`} alt="Lord Ganesha" className="blessing-ganesha" />
             <div className="blessing-hi">
-              श्री गणेश जी की कृपा से<br/>
+              श्री गणेश जी की कृपा से<br />
               आप सभी सादर आमंत्रित हैं
             </div>
             <p className="blessing-en">
-              With the blessings of <span className="hl">Lord Ganesha</span><br/>
-              we invite you to join our celebration<br/>
+              With the blessings of <span className="hl">Lord Ganesha</span><br />
+              we invite you to join our celebration<br />
               of love, joy, and togetherness
             </p>
             <div className="ornament"><span className="ornament-icon">✦</span></div>
@@ -356,11 +356,11 @@ function App() {
             <div className="rsvp-title-hi">आपकी उपस्थिति हमारा सौभाग्य</div>
             <div className="ornament"><span className="ornament-icon">◆</span></div>
             <p className="rsvp-body">
-              Your presence is the greatest gift.<br/>
+              Your presence is the greatest gift.<br />
               Please let us know if you can join us.
             </p>
             <a href="https://wa.me/918527684249?text=Congratulations!%20We%20will%20be%20there%20for%20Tarun%20%26%20Nidhi%27s%20Wedding!%20%F0%9F%92%90"
-               target="_blank" rel="noreferrer" className="rsvp-wa">
+              target="_blank" rel="noreferrer" className="rsvp-wa">
               ✉ &nbsp;Confirm via WhatsApp
             </a>
             <div className="ornament" style={{ marginTop: '2rem' }}><span className="ornament-icon">✦</span></div>
